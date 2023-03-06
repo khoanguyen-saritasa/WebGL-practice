@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, inject, NgZone, OnDestroy, ViewChild } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { MainScene } from '@babylonjs-boilerplate/immersive';
 
 /** App component. */
 @Component({
@@ -10,8 +11,27 @@ import { RouterModule } from '@angular/router';
   imports: [RouterModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit, OnDestroy {
 
-  /** Hello. */
-  protected title = 'web';
+  private readonly ngZone = inject(NgZone);
+
+  /** Canvas reference. */
+  @ViewChild('canvas')
+  protected canvasRef?: ElementRef<HTMLCanvasElement>;
+
+  private scene: MainScene | null = null;
+
+  /** @inheritdoc */
+  public ngAfterViewInit(): void {
+    this.ngZone.runOutsideAngular(() => {
+      if (this.canvasRef != null) {
+        this.scene = new MainScene(this.canvasRef.nativeElement);
+      }
+    })
+  }
+
+  /** @inheritdoc */
+  public ngOnDestroy(): void {
+    this.scene?.erase();
+  }
 }

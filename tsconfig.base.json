@@ -16,7 +16,9 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@babylonjs-boilerplate/immersive": ["libs/immersive/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
