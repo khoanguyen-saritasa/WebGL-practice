@@ -27,7 +27,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
       if (this.canvasRef != null) {
         this.scene = new MainScene(this.canvasRef.nativeElement);
       }
-    })
+    });
   }
 
   /** @inheritdoc */
