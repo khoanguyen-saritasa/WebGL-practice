@@ -28,8 +28,8 @@ export class MainScene {
 
   // Dumb ground. Just to show something at scene
   private createGround(): void {
-    const ground = MeshBuilder.CreateGround('ground', { width: 5, height: 5 });
-    const material = new StandardMaterial('groundMaterial');
+    const ground = MeshBuilder.CreateGround('ground', { width: 5, height: 5 }, this.scene);
+    const material = new StandardMaterial('groundMaterial', this.scene);
     material.diffuseColor = Color3.Random();
     ground.material = material;
   }

@@ -7,7 +7,8 @@
     "web:build:prod": "nx run web:build:production",
     "web:build:dev": "nx run web:build:development",
     "web:lint": "nx run web:lint",
-    "immersive:lint": "nx run immersive:lint"
+    "immersive:lint": "nx run immersive:lint",
+    "core:lint": "nx run core:lint"
   },
   "private": true,
   "dependencies": {
