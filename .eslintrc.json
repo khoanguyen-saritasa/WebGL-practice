@@ -6,7 +6,7 @@
     {
       "files": ["*.ts", "*.js"],
       "plugins": ["rxjs"],
-      "extends": ["@saritasa/eslint-config-saritasa", "plugin:@nrwl/nx/typescript"],
+      "extends": ["plugin:@nrwl/nx/typescript", "@saritasa/eslint-config-saritasa"],
       "rules": {
         "rxjs/no-exposed-subjects": [
           "error",
