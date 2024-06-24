@@ -15,6 +15,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
 
   private readonly ngZone = inject(NgZone);
 
+
   /** Canvas reference. */
   @ViewChild('canvas')
   protected canvasRef?: ElementRef<HTMLCanvasElement>;
